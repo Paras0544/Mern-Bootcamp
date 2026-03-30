@@ -1,0 +1,15 @@
+{
+  "name": "learning-npm",
+  "version": "1.0.0",
+  "description": "i'm learning about npm",
+  "license": "ISC",
+  "author": "paras",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "soccer-jersey-fixed": "^1.0.15"
+  }
+}
