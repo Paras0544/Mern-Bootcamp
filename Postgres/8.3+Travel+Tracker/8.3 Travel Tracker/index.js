@@ -33,3 +33,35 @@ app.listen(port, () => {
   console.log(`Server running on http://localhost:${port}`);
 });
 
+//INSERT A new Country
+app.post("/add", async (req, res) => {
+  const input = req.body["country"];
+
+  const result = await db.query(
+    "SELECT country_code FROM visited_countries WHERE country_code = $1",
+    [input]
+  );
+
+  if(result.rows.length != 0) {
+    const data = result.rows[0];
+    const countryCode = data.country_code;
+
+    await db.query(
+      "insert into visited_countries (country_code) values ($1)",
+      [countryCode]
+    );
+  }
+  
+  res.redirect("/");
+});
+
+app.listen(port, () => {
+  console.log(`Server running on http://localhost:${port}`);
+});
+
+
+
+
+
+
+
